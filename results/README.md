@@ -1,53 +1,59 @@
 # Results
 
-## Metric definitions
-### Gradient variance
-Gradient variance is proposed by \cite{jiang2019fantastic} and is defined as:
-\
-\
-$\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)$
-\
-\
-where $\theta_i^j$ is parameter $j$ in layer $i$, $\nabla\theta_i^j$ is the gradient with respect to that parameter and $\overline{\nabla\theta_i}$ is the mean gradient of all parameters in layer $i$.
+### Metric definitions
 
-### Hessian eigenvalue sum
-Hessian eigenvalue sum is proposed by \cite{chaudhari2019entropy}. The Hessian at layer $i$, denoted $H_i$, is a square matrix of second-order partial derivatives with respect to parameters at layer $i$. Each entry in $H_i$ is defined as:
-$$
-(H_i)_{jk} = \frac{\partial^2L}{\partial\theta_i^j\partial\theta_i^k}
-$$
-where $\theta_i^j$ and $\theta_i^k$ are parameters $j$ and $k$ in layer $i$, $L$ is the loss and $\partial.$ is the partial derivative with respect to that parameter. The sum of the eigenvalues is then calculated as:
-$$
-\text{Tr}(H_i) = \sum_{p=1}^n \lambda_i^p
-$$
-where $\lambda_i^p$ is the $p^{th}$ eigenvalue of $H_i$.
+---
 
-### Sample representation similarity
-Sample representation similarity is calculated via Centered Kernel Alignment (CKA) which is proposed by \cite{kornblith2019similarity}. Its calculated as:
-$$
-\frac{||Y_i^TX_i||_F^2}{||X_i^TX_i||_F^2||Y_i^TY_i||_F^2}
-$$
-where $X_i$ and $Y_i$ are sample representations after layer $i$ coming from two distinct models.
+#### Gradient variance  
+Gradient variance, proposed by \cite{jiang2019fantastic}, is defined as:  
 
-### F1 score
-Multi-class macro-averaged F1 score is calculated as
-$$
-\text{F1}_{\text{macro}} = \frac{1}{N}\sum_{i=1}^N 2 \cdot \frac{\text{precision}_i \cdot \text{recall}_i}{\text{precision}_i + \text{recall}_i}
-$$
-where $N$ is the number of classes, and precision$_i$ and recall$_i$ are the precision and recall for class $i$. This equation gives equal weight to all classes which is useful in imbalanced datasets like ours.
+<img src="https://latex.codecogs.com/svg.latex?\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left(\nabla\theta_i^j-\overline{\nabla\theta_i}\right)^T\left(\nabla\theta_i^j-\overline{\nabla\theta_i}\right)" />
 
-### Algorithm Fairness
-Fairness is calculated as described in \cite{divi2021new} - the variance in individual client performances on their local test set:
-$$
-\text{Fairness} = \frac{1}{C}\sum_{c=1}^C \left( P_c - \overline{P_c}\right)^2
-$$
-where $C$ is the number of clients, $P_c$ is the performance of client $c$ and $\overline{P_c}$ is the average performance of all clients for a given personalized algorithm.
+where $\theta_i^{\,j}$ is parameter *j* in layer *i*,  
+$\nabla\theta_i^{\,j}$ its gradient, and $\overline{\nabla\theta_i}$ the mean gradient of all parameters in that layer.
 
-### Algorithm Incentivization
-Incentivization is defined as in \cite{cho2022federate} - the percentage of clients that outperform their local site model or global model from FedAvg:
-$$
-\text{Incentivization} = \frac{1}{C}\sum_{c=1}^C \mathbb{I} \{ P_c > \max(S_c, G_c) \}
-$$
-where $C$ is the number of clients, $P_c$ is performance of the personalized model in client $c$, $S_c$ is the performance of the local site model in client $c$, and $G_c$ is the performance of the global Fed Avg model in client $c$.
+---
+
+#### Hessian eigenvalue sum  
+Proposed by \cite{chaudhari2019entropy}. Each entry in the Hessian for layer *i* is  
+
+<img src="https://latex.codecogs.com/svg.latex?(H_i)_{jk}=\frac{\partial^2\mathcal{L}}{\partial\theta_i^j\partial\theta_i^k}" />
+
+The sum of its eigenvalues is then  
+
+<img src="https://latex.codecogs.com/svg.latex?\text{Tr}(H_i)=\sum_{p=1}^n\lambda_i^p" />
+
+---
+
+#### Sample-representation similarity (CKA)  
+Using Centered Kernel Alignment \cite{kornblith2019similarity}:  
+
+<img src="https://latex.codecogs.com/svg.latex?\text{CKA}(X_i,Y_i)=\frac{\lVert Y_i^{T}X_i\rVert_F^2}{\lVert X_i^{T}X_i\rVert_F^2\,\lVert Y_i^{T}Y_i\rVert_F^2}" />
+
+where $X_i$ and $Y_i$ are the representations after layer *i* from two distinct models.
+
+---
+
+#### Macro-averaged F1 score  
+
+<img src="https://latex.codecogs.com/svg.latex?\text{F1}_{\text{macro}}=\frac{1}{N}\sum_{i=1}^N2\cdot\frac{\text{precision}_i\cdot\text{recall}_i}{\text{precision}_i+\text{recall}_i}" />
+
+with *N* classes; useful when classes are imbalanced.
+
+---
+
+#### Algorithm fairness  
+Variance of per-client performance \cite{divi2021new}:  
+
+<img src="https://latex.codecogs.com/svg.latex?\text{Fairness}=\frac{1}{C}\sum_{c=1}^C\left(P_c-\overline{P_c}\right)^2" />
+
+---
+
+#### Algorithm incentivization  
+Percentage of clients whose personalized model beats both their local-site model and the global FedAvg model \cite{cho2022federate}:  
+
+<img src="https://latex.codecogs.com/svg.latex?\text{Incentivization}=\frac{1}{C}\sum_{c=1}^C\mathbb{I}\{P_c>\max(S_c,G_c)\}" />
+
 
 ## Model training
 
@@ -87,36 +93,14 @@ Table \ref{supp:lr} presents the learning rates utilized for each algorithm and 
 Figures \ref{sfig:grad_var_first}, \ref{sfig:grad_var_best}, and \ref{sfig:grad_var_best_fl} display the gradient variance across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
 
 Figure: Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
-
-<div style="display: inline-block; text-align: center; margin: 5px;">
-    <img src="figures/FMNIST_Gradient_Variance_first-1.png" alt="FashionMNIST Gradient Variance first" width="200"><br>
-    (A) FashionMNIST
-</div>
-<div style="display: inline-block; text-align: center; margin: 5px;">
-    <img src="figures/EMNIST_Gradient_Variance_first-1.png" alt="EMNIST Gradient Variance first" width="200"><br>
-    (B) EMNIST
-</div>
-<div style="display: inline-block; text-align: center; margin: 5px;">
-    <img src="figures/CIFAR_Gradient_Variance_first-1.png" alt="CIFAR Gradient Variance first" width="200"><br>
-    (C) CIFAR-10
-</div>
-<div style="display: inline-block; text-align: center; margin: 5px;">
-    <img src="figures/ISIC_Gradient_Variance_first-1.png" alt="ISIC Hessian EV sum first" width="200"><br>
-    (D) ISIC-2019
-</div>
-
-<div style="display: inline-block; text-align: center; margin: 5px;">
-    <img src="figures/Sentiment_Gradient_Variance_first-1.png" alt="Sentiment Gradient Variance first" width="200"><br>
-    (E) Sent-140
-</div>
-<div style="display: inline-block; text-align: center; margin: 5px;">
-    <img src="figures/mimic_Gradient_Variance_first-1.png" alt="Mimic Gradient Variance first" width="200"><br>
-    (F) MIMIC-III
-</div>
-<div style="display: inline-block; text-align: center; margin: 5px;">
-    <img src="figures/Heart_Gradient_Variance_first-1.png" alt="Heart Gradient Variance first" width="200"><br>
-    (G) Fed-Heart-Disease
-</div>
+<img src="figures/FMNIST_Gradient_Variance_first-1.png" alt="FashionMNIST Gradient Variance first" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Gradient_Variance_first-1.png" alt="EMNIST Gradient Variance first" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Gradient_Variance_first-1.png" alt="CIFAR Gradient Variance first" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Gradient_Variance_first-1.png" alt="ISIC Gradient Variance first" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Gradient_Variance_first-1.png" alt="Sentiment Gradient Variance first" width="200"> (E) Sent-140
+<img src="figures/mimic_Gradient_Variance_first-1.png" alt="Mimic Gradient Variance first" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Gradient_Variance_first-1.png" alt="Heart Gradient Variance first" width="200"> (G) Fed-Heart-Disease
 
 Figure: Layer gradient variance for final models. All models identically initialized and independently trained on non-IID data.
 <img src="figures/FMNIST_Gradient_Variance_best-1.png" alt="FashionMNIST Gradient Variance best" width="200"> (A) FashionMNIST
