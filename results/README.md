@@ -41,24 +41,6 @@ Figures below display the gradient variance across all datasets, corresponding t
 
 <table>
   <tr align="center">
-    <td width="25%"><img src="figures/path_to_image1.png" width="100%"><br><em>(A) DatasetName1</em></td>
-    <td width="25%"><img src="figures/path_to_image2.png" width="100%"><br><em>(B) DatasetName2</em></td>
-    <td width="25%"><img src="figures/path_to_image3.png" width="100%"><br><em>(C) DatasetName3</em></td>
-    <td width="25%"><img src="figures/path_to_image4.png" width="100%"><br><em>(D) DatasetName4</em></td>
-  </tr>
-  <tr align="center">
-    <td width="25%"><img src="figures/path_to_image5.png" width="100%"><br><em>(E) DatasetName5</em></td>
-    <td width="25%"><img src="figures/path_to_image6.png" width="100%"><br><em>(F) DatasetName6</em></td>
-    <td width="25%"><img src="figures/path_to_image7.png" width="100%"><br><em>(G) DatasetName7</em></td>
-    <td width="25%"></td>
-  </tr>
-</table>
-Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
-
-**Final Models (Independent Training)**
-
-<table>
-  <tr align="center">
     <td width="25%"><img src="figures/FMNIST_Gradient_Variance_best-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
     <td width="25%"><img src="figures/EMNIST_Gradient_Variance_best-1.png" width="100%"><br><em>(B) EMNIST</em></td>
     <td width="25%"><img src="figures/CIFAR_Gradient_Variance_best-1.png" width="100%"><br><em>(C) CIFAR-10</em></td>
@@ -68,6 +50,24 @@ Layer gradient variance after one epoch. All models identically initialized and 
     <td width="25%"><img src="figures/Sentiment_Gradient_Variance_best-1.png" width="100%"><br><em>(E) Sent-140</em></td>
     <td width="25%"><img src="figures/mimic_Gradient_Variance_best-1.png" width="100%"><br><em>(F) MIMIC-III</em></td>
     <td width="25%"><img src="figures/Heart_Gradient_Variance_best-1.png" width="100%"><br><em>(G) Fed-Heart-Disease</em></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
+
+**Final Models (Independent Training)**
+
+<table>
+  <tr align="center">
+    <td width="25%"><img src="figures/FMNIST_Gradient_Variance_first-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
+    <td width="25%"><img src="figures/EMNIST_Gradient_Variance_first-1.png" width="100%"><br><em>(B) EMNIST</em></td>
+    <td width="25%"><img src="figures/CIFAR_Gradient_Variance_first-1.png" width="100%"><br><em>(C) CIFAR-10</em></td>
+    <td width="25%"><img src="figures/ISIC_Gradient_Variance_first-1.png" width="100%"><br><em>(D) ISIC-2019</em></td>
+  </tr>
+  <tr align="center">
+    <td width="25%"><img src="figures/Sentiment_Gradient_Variance_first-1.png" width="100%"><br><em>(E) Sent-140</em></td>
+    <td width="25%"><img src="figures/mimic_Gradient_Variance_first-1.png" width="100%"><br><em>(F) MIMIC-III</em></td>
+    <td width="25%"><img src="figures/Heart_Gradient_Variance_first-1.png" width="100%"><br><em>(G) Fed-Heart-Disease</em></td>
     <td width="25%"></td>
   </tr>
 </table>
