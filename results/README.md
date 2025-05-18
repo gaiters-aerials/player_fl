@@ -1,12 +1,12 @@
-# Appendix
+# Results
 
 ## Metric definitions
 ### Gradient variance
 Gradient variance is proposed by \cite{jiang2019fantastic} and is defined as:
-$$
-\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)
-$$
-where $\theta_i^j$ is parameter $j$ in layer $i$, $ \nabla\theta_i^j$ is the gradient with respect to that parameter and $\overline{\nabla\theta_i}$ is the mean gradient of all parameters in layer $i$.
+\
+$\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)$
+\
+where $\theta_i^j$ is parameter $j$ in layer $i$, $\nabla\theta_i^j$ is the gradient with respect to that parameter and $\overline{\nabla\theta_i}$ is the mean gradient of all parameters in layer $i$.
 
 ### Hessian eigenvalue sum
 Hessian eigenvalue sum is proposed by \cite{chaudhari2019entropy}. The Hessian at layer $i$, denoted $H_i$, is a square matrix of second-order partial derivatives with respect to parameters at layer $i$. Each entry in $H_i$ is defined as:
@@ -46,38 +46,6 @@ $$
 \text{Incentivization} = \frac{1}{C}\sum_{c=1}^C \mathbb{I} \{ P_c > \max(S_c, G_c) \}
 $$
 where $C$ is the number of clients, $P_c$ is performance of the personalized model in client $c$, $S_c$ is the performance of the local site model in client $c$, and $G_c$ is the performance of the global Fed Avg model in client $c$.
-
-## Datasets
-
-Table: Dataset descriptions
-
-| Dataset           | Description                                     | Classes | Partition                   |
-| :---------------- | :---------------------------------------------- | :------ | :-------------------------- |
-| FashionMNIST      | Fashion images                                  | 10      | Label skew $Dir \sim (0.5)$ |
-| EMNIST            | Handwritten digit and character images          | 62      | Label skew $Dir \sim (0.5)$ |
-| CIFAR-10          | Color images                                    | 10      | Label skew $Dir \sim (0.5)$ |
-| ISIC-2019         | Skin lesion images taken via dermoscopy         | 4       | Data collected from 4 hospitals |
-| Fed-Heart-Disease | Tabular data of patients with heart disease     | 5       | Data collected from 5 hospitals |
-| Sent-140          | Sentiment classification of tweets              | 2       | Data collected from 15 users |
-| MIMIC-III         | Mortality prediction using patient admission note | 2       | Data grouped by patient admitting diagnosis |
-
-For FashionMNIST, EMNIST, and CIFAR-10 we create non-IID datasets by via label skew using a a dirichlet distribution ($\alpha = 0.5)$. The remaining datasets have a natural partition that we adhere to. For Sent-140 we select the top 15 users by tweet count.
-
-## Model architectures and Transition point
-
-Table: Model architectures and transition points identified by federation sensitivity metric.
-
-| Dataset      | Architecture                                                      | Transition Point    |
-| :----------- | :---------------------------------------------------------------- | :------------------ |
-| FashionMNIST | \{3$\times$Conv-2$\times$FC\}                                     | Conv$_3$            |
-| EMNIST       | \{3$\times$Conv-2$\times$FC\}                                     | Conv$_3$            |
-| CIFAR-10     | \{5$\times$Conv-2$\times$FC\}                                     | Conv$_5$            |
-| ISIC-2019    | \{5$\times$Conv-2$\times$FC\}                                     | Conv$_5$            |
-| Sent-140     | \{Position$\oplus$Token Emb-Attention$\oplus$Residual-FC$\oplus$Projection-FC\} | FC$_1\oplus$Projection |
-| MIMIC-III    | \{Position$\oplus$Token Emb-Attention$\oplus$Residual-FC$\oplus$Projection-FC\} | FC$_1\oplus$Projection |
-| Fed-Heart    | \{4$\times$ FC\}                                                  | FC$_2$              |
-
-\*FC = Fully connected layer
 
 ## Model training
 
