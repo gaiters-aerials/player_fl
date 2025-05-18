@@ -1,5 +1,6 @@
 # Results
 
+Below we present results for layer analytics and evaluation. We introduce metric definitions before presenting the results.
 ### Metric definitions
 
 ---
@@ -54,37 +55,6 @@ Percentage of clients whose personalized model beats both their local-site model
 
 <img src="https://latex.codecogs.com/svg.latex?\text{Incentivization}=\frac{1}{C}\sum_{c=1}^C\mathbb{I}\{P_c>\max(S_c,G_c)\}" />
 
-
-## Model training
-
-Table: Learning rates used
-
-| Algorithm         | FMNIST           | EMNIST           | CIFAR            | ISIC             | Heart            | Sent-140         | MIMIC-III        |
-| :---------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- |
-| Local client      | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-2}$ | $5\cdot 10^{-4}$ | $8\cdot 10^{-5}$ |
-| FedAvg            | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-1}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ |
-| FedProx           | $5\cdot 10^{-4}$ | $5\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-2}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ |
-| pFedMe            | $5\cdot 10^{-2}$ | $5\cdot 10^{-2}$ | $5\cdot 10^{-2}$ | $5\cdot 10^{-3}$ | $1\cdot 10^{-1}$ | $1\cdot 10^{-2}$ | $1\cdot 10^{-3}$ |
-| Ditto             | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-2}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ |
-| LocalAdaptation   | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-2}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ |
-| BABU              | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-1}$ | $8\cdot 10^{-5}$ | $5\cdot 10^{-4}$ |
-| PLayer-FL         | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $1\cdot 10^{-2}$ | $8\cdot 10^{-5}$ | $3\cdot 10^{-4}$ |
-| PLayer-FL-1       | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $5\cdot 10^{-2}$ | $8\cdot 10^{-5}$ | $8\cdot 10^{-5}$ |
-| PLayer-FL+1       | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-2}$ | $1\cdot 10^{-4}$ | $5\cdot 10^{-4}$ |
-
-Table: Learning rate grid, loss function, number of epochs and number of runs for each dataset
-
-| Dataset    | Learning rate grid                           | Loss             | Epochs | Runs |
-| :--------- | :--------------------------------------------- | :--------------- | :----- | :--- |
-| FashionMNIST | $1\cdot10^{-3}$, $5\cdot10^{-4}$, $1\cdot10^{-4}$, $8\cdot10^{-5}$ | Cross Entropy    | 75     | 10   |
-| EMNIST     | $5\cdot10^{-3}$, $1\cdot10^{-3}$, $5\cdot10^{-4}$, $1\cdot10^{-4}$, $8\cdot10^{-5}$ | Cross Entropy    | 75     | 10   |
-| CIFAR-10   | $5\cdot10^{-3}$, $1\cdot10^{-3}$, $5\cdot10^{-4}$, $1\cdot10^{-4}$ | Cross Entropy    | 50     | 10   |
-| ISIC-2019  | $1\cdot10^{-3}$, $5\cdot10^{-3}$, $1\cdot10^{-4}$ | Multiclass Focal | 50     | 3    |
-| Sent-140   | $1\cdot10^{-3}$, $5\cdot10^{-4}$, $1\cdot10^{-4}$, $8\cdot10^{-5}$ | Cross Entropy    | 75     | 20   |
-| Heart      | $5\cdot10^{-1}$, $1\cdot10^{-1}$, $5\cdot10^{-2}$, $1\cdot10^{-2}$, $5\cdot10^{-3}$ | Multiclass Focal | 50     | 50   |
-| MIMIC-III  | $5\cdot10^{-4}$, $1\cdot10^{-4}$, $3\cdot10^{-4}$, $8\cdot10^{-5}$ | Multiclass Focal | 50     | 10   |
-
-Table \ref{supp:lr} presents the learning rates utilized for each algorithm and Table \ref{supp:hyperparams} presents the learning rate grid explored, in addition to the loss function, the number of training epochs, and the count of independent training runs. With the exception of pFedME, the AdamW optimizer was used for all algorithms. For pFedME, we adopted the specific optimizer presented by the original authors, which integrates Moreau envelopes into the training process \cite{t2020pfedme}. To account for this, we multiply the learning rate grid tested by 100 as early testing showed the pFedME optimizer demonstrated improved performance with higher learning rates. All experiments were ran on 1 Tesla V100 16GB node.
 
 ## Comparing models trained on non-IID data
 
@@ -237,6 +207,37 @@ Figure: Federation sensitivity for final models. Models trained via FL on non-II
 
 
 ## Results
+
+### Model training
+
+Table: Learning rates used
+
+| Algorithm         | FMNIST           | EMNIST           | CIFAR            | ISIC             | Heart            | Sent-140         | MIMIC-III        |
+| :---------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- |
+| Local client      | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-2}$ | $5\cdot 10^{-4}$ | $8\cdot 10^{-5}$ |
+| FedAvg            | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-1}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ |
+| FedProx           | $5\cdot 10^{-4}$ | $5\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-2}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ |
+| pFedMe            | $5\cdot 10^{-2}$ | $5\cdot 10^{-2}$ | $5\cdot 10^{-2}$ | $5\cdot 10^{-3}$ | $1\cdot 10^{-1}$ | $1\cdot 10^{-2}$ | $1\cdot 10^{-3}$ |
+| Ditto             | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-2}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ |
+| LocalAdaptation   | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-2}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ |
+| BABU              | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-1}$ | $8\cdot 10^{-5}$ | $5\cdot 10^{-4}$ |
+| PLayer-FL         | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $1\cdot 10^{-2}$ | $8\cdot 10^{-5}$ | $3\cdot 10^{-4}$ |
+| PLayer-FL-1       | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $5\cdot 10^{-2}$ | $8\cdot 10^{-5}$ | $8\cdot 10^{-5}$ |
+| PLayer-FL+1       | $1\cdot 10^{-3}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-4}$ | $1\cdot 10^{-3}$ | $5\cdot 10^{-2}$ | $1\cdot 10^{-4}$ | $5\cdot 10^{-4}$ |
+
+Table: Learning rate grid, loss function, number of epochs and number of runs for each dataset
+
+| Dataset    | Learning rate grid                           | Loss             | Epochs | Runs |
+| :--------- | :--------------------------------------------- | :--------------- | :----- | :--- |
+| FashionMNIST | $1\cdot10^{-3}$, $5\cdot10^{-4}$, $1\cdot10^{-4}$, $8\cdot10^{-5}$ | Cross Entropy    | 75     | 10   |
+| EMNIST     | $5\cdot10^{-3}$, $1\cdot10^{-3}$, $5\cdot10^{-4}$, $1\cdot10^{-4}$, $8\cdot10^{-5}$ | Cross Entropy    | 75     | 10   |
+| CIFAR-10   | $5\cdot10^{-3}$, $1\cdot10^{-3}$, $5\cdot10^{-4}$, $1\cdot10^{-4}$ | Cross Entropy    | 50     | 10   |
+| ISIC-2019  | $1\cdot10^{-3}$, $5\cdot10^{-3}$, $1\cdot10^{-4}$ | Multiclass Focal | 50     | 3    |
+| Sent-140   | $1\cdot10^{-3}$, $5\cdot10^{-4}$, $1\cdot10^{-4}$, $8\cdot10^{-5}$ | Cross Entropy    | 75     | 20   |
+| Heart      | $5\cdot10^{-1}$, $1\cdot10^{-1}$, $5\cdot10^{-2}$, $1\cdot10^{-2}$, $5\cdot10^{-3}$ | Multiclass Focal | 50     | 50   |
+| MIMIC-III  | $5\cdot10^{-4}$, $1\cdot10^{-4}$, $3\cdot10^{-4}$, $8\cdot10^{-5}$ | Multiclass Focal | 50     | 10   |
+
+Table \ref{supp:lr} presents the learning rates utilized for each algorithm and Table \ref{supp:hyperparams} presents the learning rate grid explored, in addition to the loss function, the number of training epochs, and the count of independent training runs. With the exception of pFedME, the AdamW optimizer was used for all algorithms. For pFedME, we adopted the specific optimizer presented by the original authors, which integrates Moreau envelopes into the training process \cite{t2020pfedme}. To account for this, we multiply the learning rate grid tested by 100 as early testing showed the pFedME optimizer demonstrated improved performance with higher learning rates. All experiments were ran on 1 Tesla V100 16GB node.
 
 ### F1 score: fairness and incentive
 
