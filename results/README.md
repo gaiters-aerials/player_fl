@@ -4,7 +4,9 @@
 ### Gradient variance
 Gradient variance is proposed by \cite{jiang2019fantastic} and is defined as:
 \
+\
 $\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)$
+\
 \
 where $\theta_i^j$ is parameter $j$ in layer $i$, $\nabla\theta_i^j$ is the gradient with respect to that parameter and $\overline{\nabla\theta_i}$ is the mean gradient of all parameters in layer $i$.
 
@@ -85,14 +87,36 @@ Table \ref{supp:lr} presents the learning rates utilized for each algorithm and 
 Figures \ref{sfig:grad_var_first}, \ref{sfig:grad_var_best}, and \ref{sfig:grad_var_best_fl} display the gradient variance across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
 
 Figure: Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
-<img src="figures/FMNIST_Gradient_Variance_first-1.png" alt="FashionMNIST Gradient Variance first" width="200"> (A) FashionMNIST
-<img src="figures/EMNIST_Gradient_Variance_first-1.png" alt="EMNIST Gradient Variance first" width="200"> (B) EMNIST
-<img src="figures/CIFAR_Gradient_Variance_first-1.png" alt="CIFAR Gradient Variance first" width="200"> (C) CIFAR-10
-<img src="figures/ISIC_Gradient_Variance_first-1.png" alt="ISIC Gradient Variance first" width="200"> (D) ISIC-2019
-<br>
-<img src="figures/Sentiment_Gradient_Variance_first-1.png" alt="Sentiment Gradient Variance first" width="200"> (E) Sent-140
-<img src="figures/mimic_Gradient_Variance_first-1.png" alt="Mimic Gradient Variance first" width="200"> (F) MIMIC-III
-<img src="figures/Heart_Gradient_Variance_first-1.png" alt="Heart Gradient Variance first" width="200"> (G) Fed-Heart-Disease
+
+<div style="display: inline-block; text-align: center; margin: 5px;">
+    <img src="figures/FMNIST_Gradient_Variance_first-1.png" alt="FashionMNIST Gradient Variance first" width="200"><br>
+    (A) FashionMNIST
+</div>
+<div style="display: inline-block; text-align: center; margin: 5px;">
+    <img src="figures/EMNIST_Gradient_Variance_first-1.png" alt="EMNIST Gradient Variance first" width="200"><br>
+    (B) EMNIST
+</div>
+<div style="display: inline-block; text-align: center; margin: 5px;">
+    <img src="figures/CIFAR_Gradient_Variance_first-1.png" alt="CIFAR Gradient Variance first" width="200"><br>
+    (C) CIFAR-10
+</div>
+<div style="display: inline-block; text-align: center; margin: 5px;">
+    <img src="figures/ISIC_Gradient_Variance_first-1.png" alt="ISIC Hessian EV sum first" width="200"><br>
+    (D) ISIC-2019
+</div>
+
+<div style="display: inline-block; text-align: center; margin: 5px;">
+    <img src="figures/Sentiment_Gradient_Variance_first-1.png" alt="Sentiment Gradient Variance first" width="200"><br>
+    (E) Sent-140
+</div>
+<div style="display: inline-block; text-align: center; margin: 5px;">
+    <img src="figures/mimic_Gradient_Variance_first-1.png" alt="Mimic Gradient Variance first" width="200"><br>
+    (F) MIMIC-III
+</div>
+<div style="display: inline-block; text-align: center; margin: 5px;">
+    <img src="figures/Heart_Gradient_Variance_first-1.png" alt="Heart Gradient Variance first" width="200"><br>
+    (G) Fed-Heart-Disease
+</div>
 
 Figure: Layer gradient variance for final models. All models identically initialized and independently trained on non-IID data.
 <img src="figures/FMNIST_Gradient_Variance_best-1.png" alt="FashionMNIST Gradient Variance best" width="200"> (A) FashionMNIST
