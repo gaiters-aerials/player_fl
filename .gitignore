@@ -1,0 +1,17 @@
+script_annonymize
+annon/
+data/
+data_2/
+archive/
+*.pkl
+code/slurm*
+code/archive
+*.ipynb
+workbooks/
+code/evaluation/logs/
+code/layer_metrics/logs/
+__pycache__/
+.ipynb_checkpoints/
+!results/
+*.txt
+*pdf
