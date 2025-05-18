@@ -28,7 +28,7 @@ The sum of its eigenvalues is then
 #### Sample-representation similarity (CKA)  
 Using Centered Kernel Alignment \cite{kornblith2019similarity}:  
 
-<img src="https://latex.codecogs.com/svg.latex?\text{CKA}(X_i,Y_i)=\frac{\lVert Y_i^{T}X_i\rVert_F^2}{\lVert X_i^{T}X_i\rVert_F^2\,\lVert Y_i^{T}Y_i\rVert_F^2}" />
+<img src="https://latex.codecogs.com/svg.latex?CKA(X_i,Y_i)=\frac{||Y_i^TX_i||_F^2}{||X_i^TX_i||_F^2||Y_i^TY_i||_F^2}" />
 
 where $X_i$ and $Y_i$ are the representations after layer *i* from two distinct models.
 
