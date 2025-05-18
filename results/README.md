@@ -1,11 +1,11 @@
 # Appendix
 
-Below we include additional information regarding metrics, training, analysis as well as presenting additional results.
 ## Metric definitions
 ### Gradient variance
 Gradient variance is proposed by \cite{jiang2019fantastic} and is defined as:
-
-$$\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)$$
+$$
+\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)
+$$
 where $\theta_i^j$ is parameter $j$ in layer $i$, $ \nabla\theta_i^j$ is the gradient with respect to that parameter and $\overline{\nabla\theta_i}$ is the mean gradient of all parameters in layer $i$.
 
 ### Hessian eigenvalue sum
@@ -117,105 +117,116 @@ Table \ref{supp:lr} presents the learning rates utilized for each algorithm and 
 Figures \ref{sfig:grad_var_first}, \ref{sfig:grad_var_best}, and \ref{sfig:grad_var_best_fl} display the gradient variance across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
 
 Figure: Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
-<img src="figures/FMNIST_Gradient_Variance_first-1.png" alt="FashionMNIST Gradient Variance first" width="400">
-(A) FashionMNIST
-![EMNIST Gradient Variance first](figures/EMNIST_Gradient_Variance_first-1.png) (B) EMNIST
-![CIFAR Gradient Variance first](figures/CIFAR_Gradient_Variance_first-1.png) (C) CIFAR-10
-![ISIC Gradient Variance first](figures/ISIC_Gradient_Variance_first-1.png) (D) ISIC-2019
-![Sentiment Gradient Variance first](figures/Sentiment_Gradient_Variance_first-1.png) (E) Sent-140
-![Mimic Gradient Variance first](figures/mimic_Gradient_Variance_first-1.png) (F) MIMIC-III
-![Heart Gradient Variance first](figures/Heart_Gradient_Variance_first-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_Gradient_Variance_first-1.png" alt="FashionMNIST Gradient Variance first" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Gradient_Variance_first-1.png" alt="EMNIST Gradient Variance first" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Gradient_Variance_first-1.png" alt="CIFAR Gradient Variance first" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Gradient_Variance_first-1.png" alt="ISIC Gradient Variance first" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Gradient_Variance_first-1.png" alt="Sentiment Gradient Variance first" width="200"> (E) Sent-140
+<img src="figures/mimic_Gradient_Variance_first-1.png" alt="Mimic Gradient Variance first" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Gradient_Variance_first-1.png" alt="Heart Gradient Variance first" width="200"> (G) Fed-Heart-Disease
 
 Figure: Layer gradient variance for final models. All models identically initialized and independently trained on non-IID data.
-![FashionMNIST Gradient Variance best](figures/FMNIST_Gradient_Variance_best-1.png) (A) FashionMNIST
-![EMNIST Gradient Variance best](figures/EMNIST_Gradient_Variance_best-1.png) (B) EMNIST
-![CIFAR Gradient Variance best](figures/CIFAR_Gradient_Variance_best-1.png) (C) CIFAR-10
-![ISIC Gradient Variance best](figures/ISIC_Gradient_Variance_best-1.png) (D) ISIC-2019
-![Sentiment Gradient Variance best](figures/Sentiment_Gradient_Variance_best-1.png) (E) Sent-140
-![Mimic Gradient Variance best](figures/mimic_Gradient_Variance_best-1.png) (F) MIMIC-III
-![Heart Gradient Variance best](figures/Heart_Gradient_Variance_best-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_Gradient_Variance_best-1.png" alt="FashionMNIST Gradient Variance best" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Gradient_Variance_best-1.png" alt="EMNIST Gradient Variance best" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Gradient_Variance_best-1.png" alt="CIFAR Gradient Variance best" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Gradient_Variance_best-1.png" alt="ISIC Gradient Variance best" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Gradient_Variance_best-1.png" alt="Sentiment Gradient Variance best" width="200"> (E) Sent-140
+<img src="figures/mimic_Gradient_Variance_best-1.png" alt="Mimic Gradient Variance best" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Gradient_Variance_best-1.png" alt="Heart Gradient Variance best" width="200"> (G) Fed-Heart-Disease
 
 Figure: Layer gradient variance for final models. Models trained via FL on non-IID data.
-![FashionMNIST Gradient Variance best federated](figures/FMNIST_Gradient_Variance_best_federated-1.png) (A) FashionMNIST
-![EMNIST Gradient Variance best federated](figures/EMNIST_Gradient_Variance_best_federated-1.png) (B) EMNIST
-![CIFAR Gradient Variance best federated](figures/CIFAR_Gradient_Variance_best_federated-1.png) (C) CIFAR-10
-![ISIC Gradient Variance best federated](figures/ISIC_Gradient_Variance_best_federated-1.png) (D) ISIC-2019
-![Sentiment Gradient Variance best federated](figures/Sentiment_Gradient_Variance_best_federated-1.png) (E) Sent-140
-![Mimic Gradient Variance best federated](figures/mimic_Gradient_Variance_best_federated-1.png) (F) MIMIC-III
-![Heart Gradient Variance best federated](figures/Heart_Gradient_Variance_best_federated-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_Gradient_Variance_best_federated-1.png" alt="FashionMNIST Gradient Variance best federated" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Gradient_Variance_best_federated-1.png" alt="EMNIST Gradient Variance best federated" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Gradient_Variance_best_federated-1.png" alt="CIFAR Gradient Variance best federated" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Gradient_Variance_best_federated-1.png" alt="ISIC Gradient Variance best federated" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Gradient_Variance_best_federated-1.png" alt="Sentiment Gradient Variance best federated" width="200"> (E) Sent-140
+<img src="figures/mimic_Gradient_Variance_best_federated-1.png" alt="Mimic Gradient Variance best federated" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Gradient_Variance_best_federated-1.png" alt="Heart Gradient Variance best federated" width="200"> (G) Fed-Heart-Disease
 
 ### Hessian eigenvalue sum
 
 Figures \ref{sfig:hess_eig_first}, \ref{sfig:hess_eig_best}, and \ref{sfig:hess_eig_best_fl} display the hessian eigenvalue sum across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
 
 Figure: Layer hessian eigenvalue sum after one epoch. All models identically initialized and independently trained on non-IID data.
-![FashionMNIST Hessian EV sum first](figures/FMNIST_Hessian_EV_sum_first-1.png) (A) FashionMNIST
-![EMNIST Hessian EV sum first](figures/EMNIST_Hessian_EV_sum_first-1.png) (B) EMNIST
-![CIFAR Hessian EV sum first](figures/CIFAR_Hessian_EV_sum_first-1.png) (C) CIFAR-10
-![ISIC Hessian EV sum first](figures/ISIC_Hessian_EV_sum_first-1.png) (D) ISIC-2019
-![Sentiment Hessian EV sum first](figures/Sentiment_Hessian_EV_sum_first-1.png) (E) Sent-140
-![Mimic Hessian EV sum first](figures/mimic_Hessian_EV_sum_first-1.png) (F) MIMIC-III
-![Heart Hessian EV sum first](figures/Heart_Hessian_EV_sum_first-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_Hessian_EV_sum_first-1.png" alt="FashionMNIST Hessian EV sum first" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Hessian_EV_sum_first-1.png" alt="EMNIST Hessian EV sum first" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Hessian_EV_sum_first-1.png" alt="CIFAR Hessian EV sum first" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Hessian_EV_sum_first-1.png" alt="ISIC Hessian EV sum first" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Hessian_EV_sum_first-1.png" alt="Sentiment Hessian EV sum first" width="200"> (E) Sent-140
+<img src="figures/mimic_Hessian_EV_sum_first-1.png" alt="Mimic Hessian EV sum first" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Hessian_EV_sum_first-1.png" alt="Heart Hessian EV sum first" width="200"> (G) Fed-Heart-Disease
 
 Figure: Layer hessian eigenvalue sum for the final models. All models identically initialized and independently trained on non-IID data.
-![FashionMNIST Hessian EV sum best](figures/FMNIST_Hessian_EV_sum_best-1.png) (A) FashionMNIST
-![EMNIST Hessian EV sum best](figures/EMNIST_Hessian_EV_sum_best-1.png) (B) EMNIST
-![CIFAR Hessian EV sum best](figures/CIFAR_Hessian_EV_sum_best-1.png) (C) CIFAR-10
-![ISIC Hessian EV sum best](figures/ISIC_Hessian_EV_sum_best-1.png) (D) ISIC-2019
-![Sentiment Hessian EV sum best](figures/Sentiment_Hessian_EV_sum_best-1.png) (E) Sent-140
-![Mimic Hessian EV sum best](figures/mimic_Hessian_EV_sum_best-1.png) (F) MIMIC-III
-![Heart Hessian EV sum best](figures/Heart_Hessian_EV_sum_best-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_Hessian_EV_sum_best-1.png" alt="FashionMNIST Hessian EV sum best" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Hessian_EV_sum_best-1.png" alt="EMNIST Hessian EV sum best" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Hessian_EV_sum_best-1.png" alt="CIFAR Hessian EV sum best" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Hessian_EV_sum_best-1.png" alt="ISIC Hessian EV sum best" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Hessian_EV_sum_best-1.png" alt="Sentiment Hessian EV sum best" width="200"> (E) Sent-140
+<img src="figures/mimic_Hessian_EV_sum_best-1.png" alt="Mimic Hessian EV sum best" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Hessian_EV_sum_best-1.png" alt="Heart Hessian EV sum best" width="200"> (G) Fed-Heart-Disease
 
 Figure: Layer hessian eigenvalue sum for the final models. Models trained via FL on non-IID data.
-![FashionMNIST Hessian EV sum best federated](figures/FMNIST_Hessian_EV_sum_best_federated-1.png) (A) FashionMNIST
-![EMNIST Hessian EV sum best federated](figures/EMNIST_Hessian_EV_sum_best_federated-1.png) (B) EMNIST
-![CIFAR Hessian EV sum best federated](figures/CIFAR_Hessian_EV_sum_best_federated-1.png) (C) CIFAR-10
-![ISIC Hessian EV sum best federated](figures/ISIC_Hessian_EV_sum_best_federated-1.png) (D) ISIC-2019
-![Sentiment Hessian EV sum best federated](figures/Sentiment_Hessian_EV_sum_best_federated-1.png) (E) Sent-140
-![Mimic Hessian EV sum best federated](figures/mimic_Hessian_EV_sum_best_federated-1.png) (F) MIMIC-III
-![Heart Hessian EV sum best federated](figures/Heart_Hessian_EV_sum_best_federated-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_Hessian_EV_sum_best_federated-1.png" alt="FashionMNIST Hessian EV sum best federated" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Hessian_EV_sum_best_federated-1.png" alt="EMNIST Hessian EV sum best federated" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Hessian_EV_sum_best_federated-1.png" alt="CIFAR Hessian EV sum best federated" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Hessian_EV_sum_best_federated-1.png" alt="ISIC Hessian EV sum best federated" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Hessian_EV_sum_best_federated-1.png" alt="Sentiment Hessian EV sum best federated" width="200"> (E) Sent-140
+<img src="figures/mimic_Hessian_EV_sum_best_federated-1.png" alt="Mimic Hessian EV sum best federated" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Hessian_EV_sum_best_federated-1.png" alt="Heart Hessian EV sum best federated" width="200"> (G) Fed-Heart-Disease
 
 ### Sample representation
 
 Figures \ref{sfig:sample_rep_first} and \ref{sfig:sample_rep_best} display the sample representation across all datasets, corresponding to the models trained for a single epoch and the final models, respectively.
 
 Figure: Layer sample representation similarity after one epoch. All models identically initialized and independently trained on non-IID data.
-![FashionMNIST similarity first](figures/FMNIST_similarity_first-1.png) (A) FashionMNIST
-![EMNIST similarity first](figures/EMNIST_similarity_first-1.png) (B) EMNIST
-![CIFAR similarity first](figures/CIFAR_similarity_first-1.png) (C) CIFAR-10
-![Sentiment similarity first](figures/Sentiment_similarity_first-1.png) (E) Sent-140
-![Mimic similarity first](figures/mimic_similarity_first-1.png) (F) MIMIC-III
-![Heart similarity first](figures/Heart_similarity_first-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_similarity_first-1.png" alt="FashionMNIST similarity first" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_similarity_first-1.png" alt="EMNIST similarity first" width="200"> (B) EMNIST
+<img src="figures/CIFAR_similarity_first-1.png" alt="CIFAR similarity first" width="200"> (C) CIFAR-10
+<br>
+<img src="figures/Sentiment_similarity_first-1.png" alt="Sentiment similarity first" width="200"> (E) Sent-140
+<img src="figures/mimic_similarity_first-1.png" alt="Mimic similarity first" width="200"> (F) MIMIC-III
+<img src="figures/Heart_similarity_first-1.png" alt="Heart similarity first" width="200"> (G) Fed-Heart-Disease
 
 Figure: Layer sample representation similarity for final models. All models identically initialized and independently trained on non-IID data.
-![FashionMNIST similarity best](figures/FMNIST_similarity_best-1.png) (A) FashionMNIST
-![EMNIST similarity best](figures/EMNIST_similarity_best-1.png) (B) EMNIST
-![CIFAR similarity best](figures/CIFAR_similarity_best-1.png) (C) CIFAR-10
-![Sentiment similarity best](figures/Sentiment_similarity_best-1.png) (E) Sent-140
-![Mimic similarity best](figures/mimic_similarity_best-1.png) (F) MIMIC-III
-![Heart similarity best](figures/Heart_similarity_best-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_similarity_best-1.png" alt="FashionMNIST similarity best" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_similarity_best-1.png" alt="EMNIST similarity best" width="200"> (B) EMNIST
+<img src="figures/CIFAR_similarity_best-1.png" alt="CIFAR similarity best" width="200"> (C) CIFAR-10
+<br>
+<img src="figures/Sentiment_similarity_best-1.png" alt="Sentiment similarity best" width="200"> (E) Sent-140
+<img src="figures/mimic_similarity_best-1.png" alt="Mimic similarity best" width="200"> (F) MIMIC-III
+<img src="figures/Heart_similarity_best-1.png" alt="Heart similarity best" width="200"> (G) Fed-Heart-Disease
+
 
 ### Federated sensitivity
 
 Figures \ref{sfig:layer_imp_best} and \ref{sfig:layer_imp_best_fl} display the federated sensitivity score across all datasets for the final model after independent training, and final model after FL training, respectively.
 
 Figure: Federation sensitivity for final models. All models identically initialized and independently trained on non-IID data.
-![FashionMNIST Layer importance best](figures/FMNIST_Layer_importance_best-1.png) (A) FashionMNIST
-![EMNIST Layer importance best](figures/EMNIST_Layer_importance_best-1.png) (B) EMNIST
-![CIFAR Layer importance best](figures/CIFAR_Layer_importance_best-1.png) (C) CIFAR-10
-![ISIC Layer importance best](figures/ISIC_Layer_importance_best-1.png) (D) ISIC-2019
-![Sentiment Layer importance best](figures/Sentiment_Layer_importance_best-1.png) (E) Sent-140
-![Mimic Layer importance best](figures/mimic_Layer_importance_best-1.png) (F) MIMIC-III
-![Heart Layer importance best](figures/Heart_Layer_importance_best-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_Layer_importance_best-1.png" alt="FashionMNIST Layer importance best" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Layer_importance_best-1.png" alt="EMNIST Layer importance best" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Layer_importance_best-1.png" alt="CIFAR Layer importance best" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Layer_importance_best-1.png" alt="ISIC Layer importance best" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Layer_importance_best-1.png" alt="Sentiment Layer importance best" width="200"> (E) Sent-140
+<img src="figures/mimic_Layer_importance_best-1.png" alt="Mimic Layer importance best" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Layer_importance_best-1.png" alt="Heart Layer importance best" width="200"> (G) Fed-Heart-Disease
 
 Figure: Federation sensitivity for final models. Models trained via FL on non-IID data.
-![FashionMNIST Layer importance best federated](figures/FMNIST_Layer_importance_best_federated-1.png) (A) FashionMNIST
-![EMNIST Layer importance best federated](figures/EMNIST_Layer_importance_best_federated-1.png) (B) EMNIST
-![CIFAR Layer importance best federated](figures/CIFAR_Layer_importance_best_federated-1.png) (C) CIFAR-10
-![ISIC Layer importance best federated](figures/ISIC_Layer_importance_best_federated-1.png) (D) ISIC-2019
-![Sentiment Layer importance best federated](figures/Sentiment_Layer_importance_best_federated-1.png) (E) Sent-140
-![Mimic Layer importance best federated](figures/mimic_Layer_importance_best_federated-1.png) (F) MIMIC-III
-![Heart Layer importance best federated](figures/Heart_Layer_importance_best_federated-1.png) (G) Fed-Heart-Disease
+<img src="figures/FMNIST_Layer_importance_best_federated-1.png" alt="FashionMNIST Layer importance best federated" width="200"> (A) FashionMNIST
+<img src="figures/EMNIST_Layer_importance_best_federated-1.png" alt="EMNIST Layer importance best federated" width="200"> (B) EMNIST
+<img src="figures/CIFAR_Layer_importance_best_federated-1.png" alt="CIFAR Layer importance best federated" width="200"> (C) CIFAR-10
+<img src="figures/ISIC_Layer_importance_best_federated-1.png" alt="ISIC Layer importance best federated" width="200"> (D) ISIC-2019
+<br>
+<img src="figures/Sentiment_Layer_importance_best_federated-1.png" alt="Sentiment Layer importance best federated" width="200"> (E) Sent-140
+<img src="figures/mimic_Layer_importance_best_federated-1.png" alt="Mimic Layer importance best federated" width="200"> (F) MIMIC-III
+<img src="figures/Heart_Layer_importance_best_federated-1.png" alt="Heart Layer importance best federated" width="200"> (G) Fed-Heart-Disease
+
 
 ## Results
 
@@ -246,7 +257,7 @@ Table: Incentivized participation rate (%) using F1 score. In **bold** is model 
 | LocalAdaptation    | 0.0    | 40.0   | 40.0  | 0.0  | 0.0   | 0.0       | **75.0** | 5.2  |
 | FedBABU            | 0.0    | 40.0   | 80.0  | 0.0  | 0.0   | 20.0      | 50.0      | 4.4  |
 | FedLP              | 0.0    | **60.0** | 0.0   | 0.0  | 0.0   | 6.7       | 50.0      | 6.2  |
-| FedLAMA            | 0.0    | 0.0    | 0.0   | 0.0  | 0.0   | 0.0       | 25.0      | 7.3  |
+| FedLAMA            | 0.0    | 0.0    | 0.0   | 0.0  | 0.0   | 0.0       | 0.0       | 7.3  |
 | pFedLA             | 0.0    | 0.0    | 0.0   | 0.0  | 0.0   | 0.0       | 0.0       | 7.7  |
 | PLayer-FL          | **100.0** | 0.0    | **100.0** | 0.0  | 25.0  | 20.0      | 50.0      | **3.4** |
 | PLayer-FL-Random | 60.0   | 0.0    | 80.0  | 0.0  | 25.0  | 6.7       | 25.0      | 4.8  |
