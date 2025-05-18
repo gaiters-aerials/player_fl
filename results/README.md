@@ -93,14 +93,46 @@ Table \ref{supp:lr} presents the learning rates utilized for each algorithm and 
 Figures \ref{sfig:grad_var_first}, \ref{sfig:grad_var_best}, and \ref{sfig:grad_var_best_fl} display the gradient variance across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
 
 Figure: Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
-<img src="figures/FMNIST_Gradient_Variance_first-1.png" alt="FashionMNIST Gradient Variance first" width="200"> (A) FashionMNIST
-<img src="figures/EMNIST_Gradient_Variance_first-1.png" alt="EMNIST Gradient Variance first" width="200"> (B) EMNIST
-<img src="figures/CIFAR_Gradient_Variance_first-1.png" alt="CIFAR Gradient Variance first" width="200"> (C) CIFAR-10
-<img src="figures/ISIC_Gradient_Variance_first-1.png" alt="ISIC Gradient Variance first" width="200"> (D) ISIC-2019
-<br>
-<img src="figures/Sentiment_Gradient_Variance_first-1.png" alt="Sentiment Gradient Variance first" width="200"> (E) Sent-140
-<img src="figures/mimic_Gradient_Variance_first-1.png" alt="Mimic Gradient Variance first" width="200"> (F) MIMIC-III
-<img src="figures/Heart_Gradient_Variance_first-1.png" alt="Heart Gradient Variance first" width="200"> (G) Fed-Heart-Disease
+<div style="text-align:center;"> <!-- Center the whole figure block -->
+
+  <!-- Row 1: 4 images -->
+  <div style="display:flex; justify-content:space-around; margin-bottom:10px;">
+    <div style="text-align:center; width:24%;">
+      <img src="figures/path_to_image1.png" alt="Alt text 1" style="width:100%;">
+      <p style="font-size:small; margin-top:2px;"><em>(A) DatasetName1</em></p>
+    </div>
+    <div style="text-align:center; width:24%;">
+      <img src="figures/path_to_image2.png" alt="Alt text 2" style="width:100%;">
+      <p style="font-size:small; margin-top:2px;"><em>(B) DatasetName2</em></p>
+    </div>
+    <div style="text-align:center; width:24%;">
+      <img src="figures/path_to_image3.png" alt="Alt text 3" style="width:100%;">
+      <p style="font-size:small; margin-top:2px;"><em>(C) DatasetName3</em></p>
+    </div>
+    <div style="text-align:center; width:24%;">
+      <img src="figures/path_to_image4.png" alt="Alt text 4" style="width:100%;">
+      <p style="font-size:small; margin-top:2px;"><em>(D) DatasetName4</em></p>
+    </div>
+  </div>
+
+  <!-- Row 2: 3 images -->
+  <div style="display:flex; justify-content:space-around; margin-bottom:10px;">
+    <div style="text-align:center; width:24%;"> <!-- Keeping width:24% means they won't fill the row unless you adjust justify-content or add empty divs for spacing, or change width to ~32% for 3 items -->
+      <img src="figures/path_to_image5.png" alt="Alt text 5" style="width:100%;">
+      <p style="font-size:small; margin-top:2px;"><em>(E) DatasetName5</em></p>
+    </div>
+    <div style="text-align:center; width:24%;">
+      <img src="figures/path_to_image6.png" alt="Alt text 6" style="width:100%;">
+      <p style="font-size:small; margin-top:2px;"><em>(F) DatasetName6</em></p>
+    </div>
+    <div style="text-align:center; width:24%;">
+      <img src="figures/path_to_image7.png" alt="Alt text 7" style="width:100%;">
+      <p style="font-size:small; margin-top:2px;"><em>(G) DatasetName7</em></p>
+    </div>
+  </div>
+
+  <p style="text-align:center;"><strong>Figure X: Your overall caption for this set of 7 figures.</strong></p>
+</div>
 
 Figure: Layer gradient variance for final models. All models identically initialized and independently trained on non-IID data.
 <img src="figures/FMNIST_Gradient_Variance_best-1.png" alt="FashionMNIST Gradient Variance best" width="200"> (A) FashionMNIST
