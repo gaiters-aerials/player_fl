@@ -35,9 +35,9 @@ where $X_i$ and $Y_i$ are the representations after layer *i* from two distinct 
 
 ### Gradient variance
 
-Figures \ref{sfig:grad_var_first}, \ref{sfig:grad_var_best}, and \ref{sfig:grad_var_best_fl} display the gradient variance across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
-Layer Gradient Variance
-After One Epoch
+Figures below display the gradient variance across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
+
+**After One Epoch**
 <table>
   <tr align="center">
     <td width="25%"><img src="figures/path_to_image1.png" width="100%"><br><em>(A) DatasetName1</em></td>
@@ -52,8 +52,10 @@ After One Epoch
     <td width="25%"></td>
   </tr>
 </table>
-Figure X: Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
-Final Models (Independent Training)
+Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
+
+\\
+**Final Models (Independent Training)**
 <table>
   <tr align="center">
     <td width="25%"><img src="figures/FMNIST_Gradient_Variance_best-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -69,7 +71,10 @@ Final Models (Independent Training)
   </tr>
 </table>
 Figure: Layer gradient variance for final models. All models identically initialized and independently trained on non-IID data.
-Final Models (FL Training)
+
+
+\\
+**Final Models (FL Training)**
 <table>
   <tr align="center">
     <td width="25%"><img src="figures/FMNIST_Gradient_Variance_best_federated-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -85,9 +90,12 @@ Final Models (FL Training)
   </tr>
 </table>
 Figure: Layer gradient variance for final models. Models trained via FL on non-IID data.
-Hessian Eigenvalue Sum
-Figures \ref{sfig:hess_eig_first}, \ref{sfig:hess_eig_best}, and \ref{sfig:hess_eig_best_fl} display the hessian eigenvalue sum across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
-After One Epoch
+
+### Hessian Eigenvalue Sum
+
+Figures below display the hessian eigenvalue sum across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
+
+**After One Epoch**
 <table>
   <tr align="center">
     <td width="25%"><img src="figures/FMNIST_Hessian_EV_sum_first-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -102,8 +110,10 @@ After One Epoch
     <td width="25%"></td>
   </tr>
 </table>
-Figure: Layer hessian eigenvalue sum after one epoch. All models identically initialized and independently trained on non-IID data.
-Final Models (Independent Training)
+Layer hessian eigenvalue sum after one epoch. All models identically initialized and independently trained on non-IID data.
+
+\\
+**Final Models (Independent Training)**
 <table>
   <tr align="center">
     <td width="25%"><img src="figures/FMNIST_Hessian_EV_sum_best-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -118,8 +128,10 @@ Final Models (Independent Training)
     <td width="25%"></td>
   </tr>
 </table>
-Figure: Layer hessian eigenvalue sum for the final models. All models identically initialized and independently trained on non-IID data.
-Final Models (FL Training)
+Layer hessian eigenvalue sum for the final models. All models identically initialized and independently trained on non-IID data.
+
+\\
+**Final Models (FL Training)**
 <table>
   <tr align="center">
     <td width="25%"><img src="figures/FMNIST_Hessian_EV_sum_best_federated-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -134,10 +146,12 @@ Final Models (FL Training)
     <td width="25%"></td>
   </tr>
 </table>
-Figure: Layer hessian eigenvalue sum for the final models. Models trained via FL on non-IID data.
-Sample Representation
-Figures \ref{sfig:sample_rep_first} and \ref{sfig:sample_rep_best} display the sample representation across all datasets, corresponding to the models trained for a single epoch and the final models, respectively.
-After One Epoch
+Layer hessian eigenvalue sum for the final models. Models trained via FL on non-IID data.
+
+### Sample Representation
+Figures below display the sample representation across all datasets, corresponding to the models trained for a single epoch and the final models, respectively.
+
+**After One Epoch**
 <table>
   <tr align="center">
     <td width="33.3%"><img src="figures/FMNIST_similarity_first-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -150,8 +164,10 @@ After One Epoch
     <td width="33.3%"><img src="figures/Heart_similarity_first-1.png" width="100%"><br><em>(G) Fed-Heart-Disease</em></td>
   </tr>
 </table>
-Figure: Layer sample representation similarity after one epoch. All models identically initialized and independently trained on non-IID data.
-Final Models
+Layer sample representation similarity after one epoch. All models identically initialized and independently trained on non-IID data.
+
+\\
+**Final Models**
 <table>
   <tr align="center">
     <td width="33.3%"><img src="figures/FMNIST_similarity_best-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -164,10 +180,12 @@ Final Models
     <td width="33.3%"><img src="figures/Heart_similarity_best-1.png" width="100%"><br><em>(G) Fed-Heart-Disease</em></td>
   </tr>
 </table>
-Figure: Layer sample representation similarity for final models. All models identically initialized and independently trained on non-IID data.
-Federated Sensitivity
-Figures \ref{sfig:layer_imp_best} and \ref{sfig:layer_imp_best_fl} display the federated sensitivity score across all datasets for the final model after independent training, and final model after FL training, respectively.
-Final Models (Independent Training)
+ Layer sample representation similarity for final models. All models identically initialized and independently trained on non-IID data.
+
+## Federated Sensitivity
+Figures below display the federated sensitivity score across all datasets for the final model after independent training, and final model after FL training, respectively.
+
+**Final Models (Independent Training)**
 <table>
   <tr align="center">
     <td width="25%"><img src="figures/FMNIST_Layer_importance_best-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -182,8 +200,10 @@ Final Models (Independent Training)
     <td width="25%"></td>
   </tr>
 </table>
-Figure: Federation sensitivity for final models. All models identically initialized and independently trained on non-IID data.
-Final Models (FL Training)
+Federation sensitivity for final models. All models identically initialized and independently trained on non-IID data.
+
+\\
+**Final Models (FL Training)**
 <table>
   <tr align="center">
     <td width="25%"><img src="figures/FMNIST_Layer_importance_best_federated-1.png" width="100%"><br><em>(A) FashionMNIST</em></td>
@@ -198,7 +218,7 @@ Final Models (FL Training)
     <td width="25%"></td>
   </tr>
 </table>
-Figure: Federation sensitivity for final models. Models trained via FL on non-IID data.
+Federation sensitivity for final models. Models trained via FL on non-IID data.
 
 ## Results
 
