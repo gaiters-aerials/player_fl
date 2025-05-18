@@ -5,7 +5,7 @@ Below we include additional information regarding metrics, training, analysis as
 ### Gradient variance
 Gradient variance is proposed by \cite{jiang2019fantastic} and is defined as:
 
-$\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)$
+$$\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)$$
 where $\theta_i^j$ is parameter $j$ in layer $i$, $ \nabla\theta_i^j$ is the gradient with respect to that parameter and $\overline{\nabla\theta_i}$ is the mean gradient of all parameters in layer $i$.
 
 ### Hessian eigenvalue sum
