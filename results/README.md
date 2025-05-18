@@ -4,9 +4,8 @@ Below we include additional information regarding metrics, training, analysis as
 ## Metric definitions
 ### Gradient variance
 Gradient variance is proposed by \cite{jiang2019fantastic} and is defined as:
-$$
-\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)
-$$
+
+$\text{Var}(\nabla\theta_i):=\frac{1}{n}\sum_{j=1}^n\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)^T\left( \nabla\theta_i^j - \overline{\nabla\theta_i} \right)$
 where $\theta_i^j$ is parameter $j$ in layer $i$, $ \nabla\theta_i^j$ is the gradient with respect to that parameter and $\overline{\nabla\theta_i}$ is the mean gradient of all parameters in layer $i$.
 
 ### Hessian eigenvalue sum
@@ -118,7 +117,8 @@ Table \ref{supp:lr} presents the learning rates utilized for each algorithm and 
 Figures \ref{sfig:grad_var_first}, \ref{sfig:grad_var_best}, and \ref{sfig:grad_var_best_fl} display the gradient variance across all datasets, corresponding to the models trained for a single epoch, final model after independent training, and final model after FL training, respectively.
 
 Figure: Layer gradient variance after one epoch. All models identically initialized and independently trained on non-IID data.
-![FashionMNIST Gradient Variance first](figures/FMNIST_Gradient_Variance_first-1.png) (A) FashionMNIST
+<img src="figures/FMNIST_Gradient_Variance_first-1.png" alt="FashionMNIST Gradient Variance first" width="400">
+(A) FashionMNIST
 ![EMNIST Gradient Variance first](figures/EMNIST_Gradient_Variance_first-1.png) (B) EMNIST
 ![CIFAR Gradient Variance first](figures/CIFAR_Gradient_Variance_first-1.png) (C) CIFAR-10
 ![ISIC Gradient Variance first](figures/ISIC_Gradient_Variance_first-1.png) (D) ISIC-2019
